@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HhX-6x-LU9">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="DINAlternateRegular.otf">
+            <string>DIN-RegularAlternate</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Game Over View Controller-->
+        <scene sceneID="Sp4-4t-7bG">
+            <objects>
+                <viewController storyboardIdentifier="SecondViewController" id="HhX-6x-LU9" customClass="GameOverViewController" customModule="_4Game" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EcN-Q5-Dgp"/>
+                        <viewControllerLayoutGuide type="bottom" id="KRz-BO-MOd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mr3-tO-H1O">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scoreBoard" translatesAutoresizingMaskIntoConstraints="NO" id="464-SU-WKP">
+                                <rect key="frame" x="68" y="176" width="240" height="276"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="K7r-Vv-GQ9"/>
+                                    <constraint firstAttribute="height" constant="276" id="p1N-1X-eQb"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great Job!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7HD-Yj-Ulz">
+                                <rect key="frame" x="68" y="191" width="240" height="44"/>
+                                <fontDescription key="fontDescription" name="DIN-RegularAlternate" family="DIN" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Svw-kh-MI4" userLabel="SegueButtons">
+                                <rect key="frame" x="71" y="556" width="234" height="96"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Byc-pJ-S6B">
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="96"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="DRT-ew-5Zf"/>
+                                            <constraint firstAttribute="height" constant="89" id="OEo-Oi-Mwu"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="homeButton"/>
+                                        <connections>
+                                            <segue destination="QcQ-f8-O6M" kind="show" id="epX-ap-Fpz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxT-fp-b7O">
+                                        <rect key="frame" x="82" y="0.0" width="70" height="96"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="89" id="uO2-8R-dr8"/>
+                                            <constraint firstAttribute="width" constant="70" id="znB-q4-5Qg"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="play"/>
+                                        <connections>
+                                            <segue destination="rae-u0-zqI" kind="show" id="cj0-lB-Zz7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O6U-4R-2vY">
+                                        <rect key="frame" x="164" y="0.0" width="70" height="96"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="PTQ-rM-2Ns"/>
+                                            <constraint firstAttribute="height" constant="89" id="Zbb-9M-DG5"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="leaderboard"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="234" id="NUr-dr-sWp"/>
+                                    <constraint firstAttribute="height" constant="96" id="i5L-y8-ChZ"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="J1a-VG-7Rx">
+                                <rect key="frame" x="121" y="266" width="133" height="75"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="JDX-mt-eQi">
+                                        <rect key="frame" x="0.0" y="0.0" width="133" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ops-5a-E2u">
+                                                <rect key="frame" x="0.0" y="0.0" width="61" height="30"/>
+                                                <fontDescription key="fontDescription" name="DIN-RegularAlternate" family="DIN" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYv-PC-nnn">
+                                                <rect key="frame" x="72" y="0.0" width="61" height="30"/>
+                                                <fontDescription key="fontDescription" name="DIN-RegularAlternate" family="DIN" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="GYu-IR-1Lq">
+                                        <rect key="frame" x="0.0" y="45" width="133" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KLP-hy-Q73">
+                                                <rect key="frame" x="0.0" y="0.0" width="61" height="30"/>
+                                                <fontDescription key="fontDescription" name="DIN-RegularAlternate" family="DIN" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8g-p0-xXQ">
+                                                <rect key="frame" x="72" y="0.0" width="61" height="30"/>
+                                                <fontDescription key="fontDescription" name="DIN-RegularAlternate" family="DIN" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="133" id="206-1y-vDN"/>
+                                    <constraint firstAttribute="height" constant="75" id="yfv-CW-RFN"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94509803921568625" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="J1a-VG-7Rx" firstAttribute="centerY" secondItem="mr3-tO-H1O" secondAttribute="centerY" constant="-30" id="0sM-7C-3AR"/>
+                            <constraint firstItem="Svw-kh-MI4" firstAttribute="centerX" secondItem="mr3-tO-H1O" secondAttribute="centerX" id="GMI-17-fxI"/>
+                            <constraint firstItem="7HD-Yj-Ulz" firstAttribute="top" secondItem="464-SU-WKP" secondAttribute="top" constant="15" id="gPC-W1-z9O"/>
+                            <constraint firstItem="7HD-Yj-Ulz" firstAttribute="leading" secondItem="464-SU-WKP" secondAttribute="leading" id="kGO-ap-qvT"/>
+                            <constraint firstItem="464-SU-WKP" firstAttribute="centerY" secondItem="mr3-tO-H1O" secondAttribute="centerY" constant="-20" id="lEW-fJ-fQ8"/>
+                            <constraint firstItem="7HD-Yj-Ulz" firstAttribute="trailing" secondItem="464-SU-WKP" secondAttribute="trailing" id="oD0-0J-Y39"/>
+                            <constraint firstItem="J1a-VG-7Rx" firstAttribute="centerX" secondItem="mr3-tO-H1O" secondAttribute="centerX" id="w3e-Uo-9li"/>
+                            <constraint firstItem="464-SU-WKP" firstAttribute="centerX" secondItem="mr3-tO-H1O" secondAttribute="centerX" id="xue-us-IWy"/>
+                            <constraint firstItem="KRz-BO-MOd" firstAttribute="top" secondItem="Svw-kh-MI4" secondAttribute="bottom" constant="15" id="ynu-hY-kMl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bestScore" destination="M8g-p0-xXQ" id="iwV-HY-jp5"/>
+                        <outlet property="currentScore" destination="wYv-PC-nnn" id="uRm-bi-oSf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qlq-BV-GT8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="733.60000000000002" y="-84.107946026986511"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="Utk-gw-VVs">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" id="QcQ-f8-O6M" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dor-kc-VHt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="640" y="338"/>
+        </scene>
+        <!--Game-->
+        <scene sceneID="FES-xE-lez">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Game" id="rae-u0-zqI" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k8F-7C-cOI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="902" y="337"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="homeButton" width="127" height="183"/>
+        <image name="leaderboard" width="132" height="187"/>
+        <image name="play" width="134" height="190"/>
+        <image name="scoreBoard" width="595" height="464"/>
+    </resources>
+</document>

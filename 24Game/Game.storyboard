@@ -28,7 +28,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buttonbg" translatesAutoresizingMaskIntoConstraints="NO" id="UbP-tr-fuB">
-                                <rect key="frame" x="15" y="279" width="345" height="373"/>
+                                <rect key="frame" x="15" y="269" width="345" height="383"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="IkI-Un-bg9" userLabel="ButtonsStack">
                                 <rect key="frame" x="28" y="306" width="319" height="318"/>
@@ -43,7 +43,7 @@
                                                     <constraint firstAttribute="width" constant="70" id="Oha-RF-goP"/>
                                                     <constraint firstAttribute="height" constant="96" id="vp9-RD-4eD"/>
                                                 </constraints>
-                                                <state key="normal" image="one"/>
+                                                <state key="normal" image="blank"/>
                                                 <connections>
                                                     <action selector="mainButtonWithSender:" destination="S3x-18-N4s" eventType="touchUpInside" id="iau-TN-hwG"/>
                                                 </connections>
@@ -55,7 +55,7 @@
                                                     <constraint firstAttribute="width" constant="70" id="dz8-KR-Zbg"/>
                                                     <constraint firstAttribute="height" constant="96" id="jAG-dJ-DR0"/>
                                                 </constraints>
-                                                <state key="normal" image="two"/>
+                                                <state key="normal" image="blank"/>
                                                 <connections>
                                                     <action selector="mainButtonWithSender:" destination="S3x-18-N4s" eventType="touchUpInside" id="uOg-iL-X8N"/>
                                                 </connections>
@@ -67,7 +67,7 @@
                                                     <constraint firstAttribute="width" constant="70" id="W1x-nP-6mt"/>
                                                     <constraint firstAttribute="height" constant="96" id="ocg-FF-hDY"/>
                                                 </constraints>
-                                                <state key="normal" image="three"/>
+                                                <state key="normal" image="blank"/>
                                                 <connections>
                                                     <action selector="mainButtonWithSender:" destination="S3x-18-N4s" eventType="touchUpInside" id="JZX-xW-uRm"/>
                                                 </connections>
@@ -79,7 +79,7 @@
                                                     <constraint firstAttribute="width" constant="70" id="9Xe-eH-358"/>
                                                     <constraint firstAttribute="height" constant="96" id="z18-1V-dxn"/>
                                                 </constraints>
-                                                <state key="normal" image="four"/>
+                                                <state key="normal" image="blank"/>
                                                 <connections>
                                                     <action selector="mainButtonWithSender:" destination="S3x-18-N4s" eventType="touchUpInside" id="lG0-Dw-F4k"/>
                                                 </connections>
@@ -186,7 +186,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M39-eu-9WY">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M39-eu-9WY">
                                         <rect key="frame" x="0.0" y="26" width="127" height="39"/>
                                         <fontDescription key="fontDescription" name="DIN-RegularAlternate" family="DIN" pointSize="32"/>
                                         <nil key="textColor"/>
@@ -222,7 +222,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:04" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Puc-Bw-80q">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Puc-Bw-80q">
                                         <rect key="frame" x="0.0" y="31.5" width="82" height="31.5"/>
                                         <fontDescription key="fontDescription" name="DIN-RegularAlternate" family="DIN" pointSize="26"/>
                                         <nil key="textColor"/>
@@ -236,7 +236,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="UbP-tr-fuB" firstAttribute="top" secondItem="Qqa-AD-neN" secondAttribute="bottom" constant="60" id="0wK-9g-NAq"/>
+                            <constraint firstItem="UbP-tr-fuB" firstAttribute="top" secondItem="Qqa-AD-neN" secondAttribute="bottom" constant="50" id="0wK-9g-NAq"/>
                             <constraint firstItem="Qqa-AD-neN" firstAttribute="leading" secondItem="3Yh-G0-vcH" secondAttribute="leading" constant="15" id="1Sd-ZU-ye7"/>
                             <constraint firstItem="r5w-Vz-Vyn" firstAttribute="leading" secondItem="hCq-gT-zRx" secondAttribute="trailing" constant="8" id="9HU-xU-DTj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="IkI-Un-bg9" secondAttribute="trailing" constant="12" id="DGW-HH-Onj"/>
@@ -260,31 +260,39 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bestScoreLabel" destination="Puc-Bw-80q" id="hNs-Jb-9ze"/>
                         <outlet property="expressionLabel" destination="Qqa-AD-neN" id="pR4-OX-8zg"/>
                         <outlet property="firstNumber" destination="IVN-fB-RNq" id="AYF-wa-X0z"/>
                         <outlet property="fourthNumber" destination="ZKE-md-dNI" id="neL-xZ-VGM"/>
                         <outlet property="secondNumber" destination="yDY-Hk-I6D" id="cOS-n9-FgD"/>
                         <outlet property="thirdNumber" destination="efu-Ko-vfd" id="wug-PX-DuE"/>
+                        <outlet property="timeElapsed" destination="M39-eu-9WY" id="FZa-FD-TbD"/>
+                        <segue destination="Ki5-AZ-JoL" kind="show" identifier="toGameOver" id="D2w-wJ-dZc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="drK-2k-HWs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="352.80000000000001" y="223.53823088455775"/>
         </scene>
+        <!--GameOver-->
+        <scene sceneID="jEj-gR-oGB">
+            <objects>
+                <viewControllerPlaceholder storyboardName="GameOver" id="Ki5-AZ-JoL" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iSN-vs-dNS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="873" y="162"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bestbg" width="152" height="119"/>
+        <image name="blank" width="130" height="184"/>
         <image name="buttonbg" width="699" height="771"/>
         <image name="clear" width="129" height="185"/>
         <image name="divide" width="129" height="185"/>
-        <image name="four" width="132" height="185"/>
         <image name="minus" width="129" height="185"/>
         <image name="multiply" width="130" height="185"/>
-        <image name="one" width="129" height="185"/>
         <image name="plus" width="128" height="184"/>
         <image name="skip" width="129" height="183"/>
-        <image name="three" width="131" height="185"/>
         <image name="timeElapsedbg" width="286" height="119"/>
-        <image name="two" width="131" height="185"/>
     </resources>
 </document>

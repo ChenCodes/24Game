@@ -21,6 +21,10 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var fourthNumber: UIButton!
     
+    @IBOutlet weak var timeElapsed: UILabel!
+    
+    @IBOutlet weak var bestScoreLabel: UILabel!
+    
     var numbersArray = [Int]()
     var currentResult = -1
     var concatenatedExpression = ""
@@ -35,14 +39,63 @@ class GameViewController: UIViewController {
     var minusPressed = false
     var multiplyPressed = false
     var dividePressed = false
-    
     var nextOperation = "none"
     
+    var countdown = 5
+    var elapsedTime = 0
+    
+    var countdownTimer = Timer()
+    var elapsedTimer = Timer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        simulateGame()
+        countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: Selector("showCountdown"), userInfo: nil, repeats: true)
     }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let previousScore = UserDefaults.standard.value(forKey: "userHighScore")! as? Int {
+            let minutesPortion = String(format: "%02d", previousScore / 60 )
+            let secondsPortion = String(format: "%02d", previousScore % 60 )
+            self.bestScoreLabel.text = "\(minutesPortion):\(secondsPortion)"
+        }
+    }
+    
+    func showCountdown() {
+        if(countdown > 0) {
+            if countdown > 4 {
+                expressionLabel.text = "Get Ready"
+                countdown = countdown - 1
+            } else {
+              countdown = countdown - 1
+                if countdown == 0 {
+                    countdownTimer.invalidate()
+                    expressionLabel.text = ""
+                    
+                    // this is when we generate the moves and stuff
+                    simulateGame()
+                    startElapsedTimer()
+                } else {
+                    expressionLabel.text = String(countdown)
+                }
+            }
+        }
+    }
+    
+    
+    func startElapsedTimer() {
+        elapsedTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            self.elapsedTime += 1
+            let minutesPortion = String(format: "%02d", self.elapsedTime / 60 )
+            let secondsPortion = String(format: "%02d", self.elapsedTime % 60 )
+            self.timeElapsed.text = "\(minutesPortion):\(secondsPortion)"
+        }
+    }
+    
+    func stopElapsedTimer() {
+        elapsedTimer.invalidate()
+    }
+    
     
     func simulateGame() {
         numbersArray = [Int]()
@@ -55,7 +108,6 @@ class GameViewController: UIViewController {
             switch(number) {
             case "1":
                 correctImage = UIImage(named: "one.png")
-                
             case "2":
                 correctImage = UIImage(named: "two.png")
             case "3":
@@ -98,12 +150,6 @@ class GameViewController: UIViewController {
     
     
     @IBAction func mainButton(sender: UIButton) {
-        
-        
-        
-        
-        
-        
         if firstPress == false {
             
             // This sets our value to be the number we pressed on
@@ -119,8 +165,6 @@ class GameViewController: UIViewController {
         if pressedNumber == false {
             
             if (sender.tag == 0 && firstNumberPressed == false || sender.tag == 1 && secondNumberPressed == false || sender.tag == 2 && thirdNumberPressed == false || fourthNumberPressed == false && sender.tag == 3) {
-                
-                
                 
                 switch(nextOperation) {
                     case "plus":
@@ -155,8 +199,6 @@ class GameViewController: UIViewController {
             break
         }
         
-        
-        print("our current result is now: ", currentResult)
         if expressionLabel.text?.characters.count == 13 {
             checkResult(finalResult: currentResult)
         }
@@ -168,17 +210,46 @@ class GameViewController: UIViewController {
         
         if finalResult == 24 {
             // perform some kind of segue
+            var storyboard : UIStoryboard = UIStoryboard(name: "GameOver", bundle: nil)
+            let secondViewController = storyboard.instantiateViewController(withIdentifier: "SecondViewController") as! GameOverViewController
+            secondViewController.currentScoreInteger = elapsedTime
+            self.present(secondViewController, animated: true, completion: nil)
+            
+            
+            
+            if (UserDefaults.standard.value(forKey: "userHighScore") == nil) {
+                UserDefaults.standard.set(elapsedTime, forKey: "userHighScore")
+                
+                
+            }
+            
+            
+            var previousScore = UserDefaults.standard.value(forKey: "userHighScore")! as? Int
+            
+            
+            // If our current score is better than our high score
+            if (elapsedTime < previousScore!) {
+                UserDefaults.standard.setValue(elapsedTime, forKey: "userHighScore")
+                let minutesPortion = String(format: "%02d", self.elapsedTime / 60 )
+                let secondsPortion = String(format: "%02d", self.elapsedTime % 60 )
+                self.bestScoreLabel.text = "\(minutesPortion):\(secondsPortion)"
+                
+            }
+            
+
+            
+            
+            stopElapsedTimer()
             print("YOU HAVE WON!")
         } else {
             // should clear the board
-            resetVariables()
+            resetVariables(clearPress: true)
         }
         
         
     }
     
     @IBAction func plusPressed(_ sender: UIButton) {
-        
         if pressedNumber && !plusPressed {
             concatenatedExpression = concatenatedExpression + " + "
             expressionLabel.text = concatenatedExpression
@@ -186,10 +257,7 @@ class GameViewController: UIViewController {
             plusPressed = true
         }
         pressedNumber = false
-        
-        
     }
-    
     
     
     @IBAction func minusPressed(_ sender: UIButton) {
@@ -200,7 +268,6 @@ class GameViewController: UIViewController {
             nextOperation = "minus"
         }
         pressedNumber = false
-    
     }
     
     
@@ -212,7 +279,6 @@ class GameViewController: UIViewController {
             nextOperation = "multiply"
         }
         pressedNumber = false
-        
     }
     
     
@@ -224,17 +290,14 @@ class GameViewController: UIViewController {
             nextOperation = "divide"
         }
         pressedNumber = false
-        
     }
-    
-    
     
     @IBAction func clearPressed(_ sender: UIButton) {
         print("clear")
-        resetVariables()
+        resetVariables(clearPress: true)
     }
     
-    func resetVariables() {
+    func resetVariables(clearPress: Bool) {
         currentResult = -1
         concatenatedExpression = ""
         
@@ -250,13 +313,16 @@ class GameViewController: UIViewController {
         dividePressed = false
         nextOperation = "none"
         expressionLabel.text = concatenatedExpression
-        
+        countdown = 5
+        if !clearPress {
+            elapsedTime = 0
+        }
     }
     
     
     // Randomly generates new numbers as well as starting the timer over to 0 seconds elapsed
     @IBAction func skipPressed(_ sender: UIButton) {
-        resetVariables()
+        resetVariables(clearPress: false)
         simulateGame()
     }
     
