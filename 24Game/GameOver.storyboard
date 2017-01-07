@@ -17,7 +17,7 @@
         <!--Game Over View Controller-->
         <scene sceneID="Sp4-4t-7bG">
             <objects>
-                <viewController storyboardIdentifier="SecondViewController" id="HhX-6x-LU9" customClass="GameOverViewController" customModule="_4Game" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameOverViewController" id="HhX-6x-LU9" customClass="GameOverViewController" customModule="_4Game" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EcN-Q5-Dgp"/>
                         <viewControllerLayoutGuide type="bottom" id="KRz-BO-MOd"/>
@@ -71,6 +71,9 @@
                                             <constraint firstAttribute="height" constant="89" id="Zbb-9M-DG5"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="leaderboard"/>
+                                        <connections>
+                                            <action selector="callGameCenter:" destination="HhX-6x-LU9" eventType="touchUpInside" id="xFZ-1c-Rnh"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

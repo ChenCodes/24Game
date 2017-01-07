@@ -11,6 +11,7 @@
 		4326F1CF1E20A48700FE7B83 /* 24.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4326F1CE1E20A48700FE7B83 /* 24.swift */; };
 		4326F1D11E21660F00FE7B83 /* GameOver.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4326F1D01E21660F00FE7B83 /* GameOver.storyboard */; };
 		4326F1D31E21697600FE7B83 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4326F1D21E21697600FE7B83 /* GameOverViewController.swift */; };
+		4326F1D91E21749C00FE7B83 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4326F1D81E21749C00FE7B83 /* GameKit.framework */; };
 		43723CCB1E2095E1006E41F5 /* DINAlternateRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 43723CCA1E2095E1006E41F5 /* DINAlternateRegular.otf */; };
 		43723CCD1E2096D8006E41F5 /* DINAlternateBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 43723CCC1E2096D8006E41F5 /* DINAlternateBold.otf */; };
 		43FCAE171E2037EA00083069 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCAE161E2037EA00083069 /* AppDelegate.swift */; };
@@ -26,8 +27,9 @@
 		4326F1CE1E20A48700FE7B83 /* 24.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = 24.swift; sourceTree = "<group>"; };
 		4326F1D01E21660F00FE7B83 /* GameOver.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GameOver.storyboard; sourceTree = "<group>"; };
 		4326F1D21E21697600FE7B83 /* GameOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
-		43723CCA1E2095E1006E41F5 /* DINAlternateRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DINAlternateRegular.otf; sourceTree = "<group>"; };
-		43723CCC1E2096D8006E41F5 /* DINAlternateBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DINAlternateBold.otf; sourceTree = "<group>"; };
+		4326F1D81E21749C00FE7B83 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		43723CCA1E2095E1006E41F5 /* DINAlternateRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = DINAlternateRegular.otf; path = ../DINAlternateRegular.otf; sourceTree = "<group>"; };
+		43723CCC1E2096D8006E41F5 /* DINAlternateBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = DINAlternateBold.otf; path = ../DINAlternateBold.otf; sourceTree = "<group>"; };
 		43FCAE131E2037EA00083069 /* 24Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 24Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43FCAE161E2037EA00083069 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43FCAE181E2037EA00083069 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -43,19 +45,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4326F1D91E21749C00FE7B83 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		43FCAE0A1E2037EA00083069 = {
+		4326F1D41E21713700FE7B83 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
 				43723CCC1E2096D8006E41F5 /* DINAlternateBold.otf */,
 				43723CCA1E2095E1006E41F5 /* DINAlternateRegular.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		4326F1D51E21744300FE7B83 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4326F1D81E21749C00FE7B83 /* GameKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		43FCAE0A1E2037EA00083069 = {
+			isa = PBXGroup;
+			children = (
 				43FCAE151E2037EA00083069 /* 24Game */,
 				43FCAE141E2037EA00083069 /* Products */,
+				4326F1D51E21744300FE7B83 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +89,7 @@
 		43FCAE151E2037EA00083069 /* 24Game */ = {
 			isa = PBXGroup;
 			children = (
+				4326F1D41E21713700FE7B83 /* Fonts */,
 				43FCAE2C1E20566D00083069 /* Models */,
 				43FCAE2B1E20566700083069 /* Controllers */,
 				43FCAE2A1E20566300083069 /* Views */,
@@ -143,6 +163,11 @@
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = 32QK2563WV;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -315,8 +340,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 32QK2563WV;
 				INFOPLIST_FILE = 24Game/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "core-ios.24Game";
+				PRODUCT_BUNDLE_IDENTIFIER = "core-ios.24game";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -328,8 +354,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 32QK2563WV;
 				INFOPLIST_FILE = 24Game/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "core-ios.24Game";
+				PRODUCT_BUNDLE_IDENTIFIER = "core-ios.24game";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

@@ -54,11 +54,16 @@ class GameViewController: UIViewController {
     
     
     override func viewDidAppear(_ animated: Bool) {
-        if let previousScore = UserDefaults.standard.value(forKey: "userHighScore")! as? Int {
-            let minutesPortion = String(format: "%02d", previousScore / 60 )
-            let secondsPortion = String(format: "%02d", previousScore % 60 )
-            self.bestScoreLabel.text = "\(minutesPortion):\(secondsPortion)"
+        print("did we come here")
+        if UserDefaults.standard.value(forKey: "userHighScore") != nil {
+            if let previousScore = UserDefaults.standard.value(forKey: "userHighScore")! as? Int {
+                print("we shoudn't be in here")
+                let minutesPortion = String(format: "%02d", previousScore / 60 )
+                let secondsPortion = String(format: "%02d", previousScore % 60 )
+                self.bestScoreLabel.text = "\(minutesPortion):\(secondsPortion)"
+            }
         }
+        
     }
     
     func showCountdown() {
@@ -69,6 +74,7 @@ class GameViewController: UIViewController {
             } else {
               countdown = countdown - 1
                 if countdown == 0 {
+                    print("hey")
                     countdownTimer.invalidate()
                     expressionLabel.text = ""
                     
@@ -80,6 +86,7 @@ class GameViewController: UIViewController {
                 }
             }
         }
+        print("got to end of showcountfodn")
     }
     
     
@@ -98,6 +105,7 @@ class GameViewController: UIViewController {
     
     
     func simulateGame() {
+        print("hello")
         numbersArray = [Int]()
         firstPress = false
         var chosenNumbers = expression24(mode: "easy")
@@ -142,7 +150,7 @@ class GameViewController: UIViewController {
             print("numbers array is", numbersArray)
             
         }
-        
+        print("CCC")
         
     }
     
@@ -207,20 +215,25 @@ class GameViewController: UIViewController {
     }
 
     func checkResult(finalResult: Int) {
-        
+        print("should be here")
         if finalResult == 24 {
             // perform some kind of segue
             var storyboard : UIStoryboard = UIStoryboard(name: "GameOver", bundle: nil)
-            let secondViewController = storyboard.instantiateViewController(withIdentifier: "SecondViewController") as! GameOverViewController
+            print("1")
+            let secondViewController = storyboard.instantiateViewController(withIdentifier: "GameOverViewController") as! GameOverViewController
             secondViewController.currentScoreInteger = elapsedTime
+            
+            print("2")
             self.present(secondViewController, animated: true, completion: nil)
+            print("3")
             
             
             
             if (UserDefaults.standard.value(forKey: "userHighScore") == nil) {
+                print("should've come in here?")
                 UserDefaults.standard.set(elapsedTime, forKey: "userHighScore")
                 
-                
+                print("oh nooo")
             }
             
             
@@ -300,7 +313,6 @@ class GameViewController: UIViewController {
     func resetVariables(clearPress: Bool) {
         currentResult = -1
         concatenatedExpression = ""
-        
         firstPress = false
         pressedNumber = false
         firstNumberPressed = false
@@ -316,14 +328,19 @@ class GameViewController: UIViewController {
         countdown = 5
         if !clearPress {
             elapsedTime = 0
+            let minutesPortion = String(format: "%02d", elapsedTime / 60 )
+            let secondsPortion = String(format: "%02d", elapsedTime % 60 )
+            self.timeElapsed.text = "\(minutesPortion):\(secondsPortion)"
+            
         }
     }
-    
     
     // Randomly generates new numbers as well as starting the timer over to 0 seconds elapsed
     @IBAction func skipPressed(_ sender: UIButton) {
         resetVariables(clearPress: false)
-        simulateGame()
+        countdownTimer.invalidate()
+        elapsedTimer.invalidate()
+        countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: Selector("showCountdown"), userInfo: nil, repeats: true)
     }
     
     
