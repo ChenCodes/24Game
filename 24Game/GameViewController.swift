@@ -25,6 +25,9 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var bestScoreLabel: UILabel!
     
+    
+    
+    
     var numbersArray = [Int]()
     var currentResult = -1
     var concatenatedExpression = ""
@@ -226,7 +229,7 @@ class GameViewController: UIViewController {
                 }
 
             }
-        }        
+        }
         if expressionLabel.text?.characters.count == 13 || firstNumberPressed && secondNumberPressed && thirdNumberPressed && fourthNumberPressed {
             print("i came into checkresult")
             checkResult(finalResult: currentResult)
@@ -348,6 +351,7 @@ class GameViewController: UIViewController {
     @IBAction func clearPressed(_ sender: UIButton) {
         print("clear")
         resetVariables(clearPress: true)
+        
     }
     
     func resetVariables(clearPress: Bool) {
@@ -377,6 +381,10 @@ class GameViewController: UIViewController {
     // Randomly generates new numbers as well as starting the timer over to 0 seconds elapsed
     @IBAction func skipPressed(_ sender: UIButton) {
         resetVariables(clearPress: false)
+        firstNumber.setImage(UIImage(named: "blank.png"), for: .normal)
+        secondNumber.setImage(UIImage(named: "blank.png"), for: .normal)
+        thirdNumber.setImage(UIImage(named: "blank.png"), for: .normal)
+        fourthNumber.setImage(UIImage(named: "blank.png"), for: .normal)
         countdownTimer.invalidate()
         elapsedTimer.invalidate()
         countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: Selector("showCountdown"), userInfo: nil, repeats: true)

@@ -36,12 +36,20 @@ class GameOverViewController: UIViewController, GKGameCenterControllerDelegate {
         currentScore.text = "\(minutesPortion):\(secondsPortion)"
     }
     
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         print(currentScoreInteger)
         if let previousScore = UserDefaults.standard.value(forKey: "userHighScore")! as? Int {
-            let minutesPortion = String(format: "%02d", previousScore / 60 )
-            let secondsPortion = String(format: "%02d", previousScore % 60 )
-            bestScore.text = "\(minutesPortion):\(secondsPortion)"
+            if previousScore < currentScoreInteger {
+                let minutesPortion = String(format: "%02d", previousScore / 60 )
+                let secondsPortion = String(format: "%02d", previousScore % 60 )
+                bestScore.text = "\(minutesPortion):\(secondsPortion)"
+            } else {
+                let minutesPortion = String(format: "%02d", currentScoreInteger / 60 )
+                let secondsPortion = String(format: "%02d", currentScoreInteger % 60 )
+                bestScore.text = "\(minutesPortion):\(secondsPortion)"
+            }
         }
         
         let minutesPortion = String(format: "%02d", currentScoreInteger / 60 )
@@ -50,13 +58,9 @@ class GameOverViewController: UIViewController, GKGameCenterControllerDelegate {
     }
 
 
-    @IBAction func callGameCenter(_ sender: UIButton) {
-        print("in here")
-        if let previousScore = UserDefaults.standard.value(forKey: "userHighScore")! as? Int {
-            saveHighscore(number: previousScore)
-            showLeaderBoard()
-        }
-        
+    @IBAction func callGameCenter(_ sender: Any) {
+        saveHighscore(number: UserDefaults.standard.value(forKey: "userHighScore") as! Int)
+        showLeaderBoard()
     }
 
     
@@ -80,32 +84,23 @@ class GameOverViewController: UIViewController, GKGameCenterControllerDelegate {
             
         }
     }
-    
-    func saveHighscore(number : Int){
-        print("in scores")
-        print(number)
+    func saveHighscore(number: Int){
         if GKLocalPlayer.localPlayer().isAuthenticated {
-            print("1")
-            let scoreReporter = GKScore(leaderboardIdentifier: "This2")
-            
+            let scoreReporter = GKScore(leaderboardIdentifier: "IDGOESHERE")
             scoreReporter.value = Int64(number)
-            
             let scoreArray : [GKScore] = [scoreReporter]
-            print("2")
             GKScore.report(scoreArray, withCompletionHandler: nil)
-            
+            print(scoreArray)
         }
+        print("saved high score???")
     }
     
     func showLeaderBoard(){
-        
+        let viewController = self
         let gcvc = GKGameCenterViewController()
-        
         gcvc.gameCenterDelegate = self
-        
-        self.present(gcvc, animated: true, completion: nil)
+        viewController.present(gcvc, animated: true, completion: nil)
     }
-    
     
     func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
         gameCenterViewController.dismiss(animated: true, completion: nil)
