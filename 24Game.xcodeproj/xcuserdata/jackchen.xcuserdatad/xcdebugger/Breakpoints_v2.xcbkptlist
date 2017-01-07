@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "24Game/GameViewController.swift"
-            timestampString = "505510003.164136"
+            timestampString = "505520439.962588"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
             landmarkName = "checkResult(finalResult:)"
             landmarkType = "7">
          </BreakpointContent>

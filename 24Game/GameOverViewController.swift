@@ -20,6 +20,7 @@ class GameOverViewController: UIViewController, GKGameCenterControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        authPlayer()
 
         // Do any additional setup after loading the view.
         if (UserDefaults.standard.value(forKey: "userHighScore") != nil)  {
@@ -50,10 +51,12 @@ class GameOverViewController: UIViewController, GKGameCenterControllerDelegate {
 
 
     @IBAction func callGameCenter(_ sender: UIButton) {
+        print("in here")
         if let previousScore = UserDefaults.standard.value(forKey: "userHighScore")! as? Int {
             saveHighscore(number: previousScore)
+            showLeaderBoard()
         }
-        showLeaderBoard()
+        
     }
 
     
@@ -79,27 +82,28 @@ class GameOverViewController: UIViewController, GKGameCenterControllerDelegate {
     }
     
     func saveHighscore(number : Int){
-        
+        print("in scores")
+        print(number)
         if GKLocalPlayer.localPlayer().isAuthenticated {
-            
+            print("1")
             let scoreReporter = GKScore(leaderboardIdentifier: "This2")
             
             scoreReporter.value = Int64(number)
             
             let scoreArray : [GKScore] = [scoreReporter]
-            
+            print("2")
             GKScore.report(scoreArray, withCompletionHandler: nil)
             
         }
     }
     
     func showLeaderBoard(){
-        let viewController = self.view.window?.rootViewController
+        
         let gcvc = GKGameCenterViewController()
         
         gcvc.gameCenterDelegate = self
         
-        viewController?.present(gcvc, animated: true, completion: nil)
+        self.present(gcvc, animated: true, completion: nil)
     }
     
     

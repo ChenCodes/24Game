@@ -158,6 +158,15 @@ class GameViewController: UIViewController {
     
     
     @IBAction func mainButton(sender: UIButton) {
+        
+        print("did i just press an operator", nextOperation)
+        print("pressed number is: ", pressedNumber)
+        if elapsedTimer == nil {
+            print("shouldn't do anything")
+        } else {
+            
+        
+        
         if firstPress == false {
             
             // This sets our value to be the number we pressed on
@@ -167,12 +176,24 @@ class GameViewController: UIViewController {
             concatenatedExpression += String(currentResult)
             expressionLabel.text = concatenatedExpression
             pressedNumber = true
+            switch(sender.tag) {
+            case 0:
+                firstNumberPressed = true
+            case 1:
+                secondNumberPressed = true
+            case 2:
+                thirdNumberPressed = true
+            case 3:
+                fourthNumberPressed = true
+            default:
+                break
+            }
+
         }
         
         // This means we pressed another number, time to evaluate what it is given the previous operation
-        if pressedNumber == false {
-            
-            if (sender.tag == 0 && firstNumberPressed == false || sender.tag == 1 && secondNumberPressed == false || sender.tag == 2 && thirdNumberPressed == false || fourthNumberPressed == false && sender.tag == 3) {
+        else if pressedNumber == false {
+            if ((sender.tag == 0 && firstNumberPressed == false) || (sender.tag == 1 && secondNumberPressed == false) || (sender.tag == 2 && thirdNumberPressed == false) || (fourthNumberPressed == false && sender.tag == 3)) {
                 
                 switch(nextOperation) {
                     case "plus":
@@ -184,33 +205,33 @@ class GameViewController: UIViewController {
                     case "divide":
                         currentResult = currentResult / numbersArray[sender.tag]
                     default:
+                        print("shouldn't come into this break staetment")
                         break
                 }
-                
-                
                 concatenatedExpression += String(numbersArray[sender.tag])
                 expressionLabel.text = concatenatedExpression
                 pressedNumber = true
+            
+                switch(sender.tag) {
+                case 0:
+                    firstNumberPressed = true
+                case 1:
+                    secondNumberPressed = true
+                case 2:
+                    thirdNumberPressed = true
+                case 3:
+                    fourthNumberPressed = true
+                default:
+                    break
+                }
+
             }
-        }
-        
-        switch(sender.tag) {
-        case 0:
-            firstNumberPressed = true
-        case 1:
-            secondNumberPressed = true
-        case 2:
-            thirdNumberPressed = true
-        case 3:
-            fourthNumberPressed = true
-        default:
-            break
-        }
-        
-        if expressionLabel.text?.characters.count == 13 {
+        }        
+        if expressionLabel.text?.characters.count == 13 || firstNumberPressed && secondNumberPressed && thirdNumberPressed && fourthNumberPressed {
+            print("i came into checkresult")
             checkResult(finalResult: currentResult)
         }
-        
+        }
         
     }
 
@@ -248,13 +269,12 @@ class GameViewController: UIViewController {
                 self.bestScoreLabel.text = "\(minutesPortion):\(secondsPortion)"
                 
             }
-            
 
-            
-            
             stopElapsedTimer()
             print("YOU HAVE WON!")
         } else {
+            
+            print("i should be in big booteh")
             // should clear the board
             resetVariables(clearPress: true)
         }
@@ -268,8 +288,14 @@ class GameViewController: UIViewController {
             expressionLabel.text = concatenatedExpression
             nextOperation = "plus"
             plusPressed = true
+            pressedNumber = false
+        } else {
+            print("already pressed plus")
+            print("pressed number is: ", pressedNumber)
         }
-        pressedNumber = false
+        
+        
+        
     }
     
     
@@ -279,8 +305,13 @@ class GameViewController: UIViewController {
             expressionLabel.text = concatenatedExpression
             minusPressed = true
             nextOperation = "minus"
+            pressedNumber = false
+        } else {
+            print("already pressed minus")
+            print("pressed number is: ", pressedNumber)
         }
-        pressedNumber = false
+        
+        
     }
     
     
@@ -290,8 +321,13 @@ class GameViewController: UIViewController {
             expressionLabel.text = concatenatedExpression
             multiplyPressed = true
             nextOperation = "multiply"
+            pressedNumber = false
+        } else {
+            print("already pressed multiply")
+            print("pressed number is: ", pressedNumber)
         }
-        pressedNumber = false
+        
+        
     }
     
     
@@ -301,8 +337,12 @@ class GameViewController: UIViewController {
             expressionLabel.text = concatenatedExpression
             dividePressed = true
             nextOperation = "divide"
+            pressedNumber = false
+        } else {
+            print("already pressed divide")
+            print("pressed number is: ", pressedNumber)
         }
-        pressedNumber = false
+        
     }
     
     @IBAction func clearPressed(_ sender: UIButton) {
@@ -331,7 +371,6 @@ class GameViewController: UIViewController {
             let minutesPortion = String(format: "%02d", elapsedTime / 60 )
             let secondsPortion = String(format: "%02d", elapsedTime % 60 )
             self.timeElapsed.text = "\(minutesPortion):\(secondsPortion)"
-            
         }
     }
     
