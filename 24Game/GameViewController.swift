@@ -164,7 +164,7 @@ class GameViewController: UIViewController {
         
         print("did i just press an operator", nextOperation)
         print("pressed number is: ", pressedNumber)
-        if elapsedTimer == nil {
+        if elapsedTimer == nil || numbersArray.count == 0 {
             print("shouldn't do anything")
         } else {
             
@@ -355,6 +355,7 @@ class GameViewController: UIViewController {
     }
     
     func resetVariables(clearPress: Bool) {
+        numbersArray = [Int]()
         currentResult = -1
         concatenatedExpression = ""
         firstPress = false

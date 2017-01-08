@@ -170,7 +170,7 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use all the numbers and a subset of the operators to obtain the number 24" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Rn-vI-dui">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use every number once and a subset of the operators to obtain the number 24" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Rn-vI-dui">
                                                 <rect key="frame" x="0.0" y="203" width="304" height="200"/>
                                                 <fontDescription key="fontDescription" name="DIN-RegularAlternate" family="DIN" pointSize="30"/>
                                                 <nil key="textColor"/>
