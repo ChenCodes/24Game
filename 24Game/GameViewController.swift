@@ -355,7 +355,7 @@ class GameViewController: UIViewController {
     }
     
     func resetVariables(clearPress: Bool) {
-        numbersArray = [Int]()
+        
         currentResult = -1
         concatenatedExpression = ""
         firstPress = false
@@ -382,6 +382,7 @@ class GameViewController: UIViewController {
     // Randomly generates new numbers as well as starting the timer over to 0 seconds elapsed
     @IBAction func skipPressed(_ sender: UIButton) {
         resetVariables(clearPress: false)
+        numbersArray = [Int]()
         firstNumber.setImage(UIImage(named: "blank.png"), for: .normal)
         secondNumber.setImage(UIImage(named: "blank.png"), for: .normal)
         thirdNumber.setImage(UIImage(named: "blank.png"), for: .normal)
