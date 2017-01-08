@@ -199,7 +199,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.93472169452887544" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="jLe-H6-erv" secondAttribute="trailing" constant="5" id="9jB-AP-oIM"/>
                             <constraint firstItem="XzM-vM-UeJ" firstAttribute="top" secondItem="jLe-H6-erv" secondAttribute="bottom" constant="5" id="myq-Uv-kYR"/>
@@ -334,7 +334,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.93366498860182368" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="a2S-8W-K7E" firstAttribute="centerY" secondItem="KfS-nz-b7b" secondAttribute="centerY" id="0C8-0X-HCu"/>
                             <constraint firstItem="a2S-8W-K7E" firstAttribute="centerX" secondItem="KfS-nz-b7b" secondAttribute="centerX" id="2Vb-nn-4mC"/>

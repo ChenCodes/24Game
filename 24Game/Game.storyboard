@@ -285,9 +285,13 @@
                     </view>
                     <connections>
                         <outlet property="bestScoreLabel" destination="Puc-Bw-80q" id="hNs-Jb-9ze"/>
+                        <outlet property="divideButton" destination="RWc-XH-fwZ" id="PB4-nv-sob"/>
                         <outlet property="expressionLabel" destination="Qqa-AD-neN" id="pR4-OX-8zg"/>
                         <outlet property="firstNumber" destination="IVN-fB-RNq" id="AYF-wa-X0z"/>
                         <outlet property="fourthNumber" destination="ZKE-md-dNI" id="neL-xZ-VGM"/>
+                        <outlet property="minusButton" destination="xmh-4N-KOW" id="T3Q-4D-dD5"/>
+                        <outlet property="multiplyButton" destination="Yzb-j0-mQX" id="azZ-Wh-d43"/>
+                        <outlet property="plusButton" destination="vEy-wG-K0C" id="YzR-ux-L0K"/>
                         <outlet property="secondNumber" destination="yDY-Hk-I6D" id="cOS-n9-FgD"/>
                         <outlet property="thirdNumber" destination="efu-Ko-vfd" id="wug-PX-DuE"/>
                         <outlet property="timeElapsed" destination="M39-eu-9WY" id="FZa-FD-TbD"/>

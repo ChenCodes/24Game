@@ -26,6 +26,13 @@ class GameViewController: UIViewController {
     @IBOutlet weak var bestScoreLabel: UILabel!
     
     
+  
+    @IBOutlet weak var plusButton: UIButton!
+    @IBOutlet weak var multiplyButton: UIButton!
+    
+    @IBOutlet weak var minusButton: UIButton!
+    
+    @IBOutlet weak var divideButton: UIButton!
     
     
     var numbersArray = [Int]()
@@ -182,12 +189,16 @@ class GameViewController: UIViewController {
             switch(sender.tag) {
             case 0:
                 firstNumberPressed = true
+                firstNumber.isEnabled = false
             case 1:
                 secondNumberPressed = true
+                secondNumber.isEnabled = false
             case 2:
                 thirdNumberPressed = true
+                thirdNumber.isEnabled = false
             case 3:
                 fourthNumberPressed = true
+                fourthNumber.isEnabled = false
             default:
                 break
             }
@@ -211,19 +222,24 @@ class GameViewController: UIViewController {
                         print("shouldn't come into this break staetment")
                         break
                 }
-                concatenatedExpression += String(numbersArray[sender.tag])
-                expressionLabel.text = concatenatedExpression
+                concatenatedExpression = String(currentResult)
+//                expressionLabel.text = concatenatedExpression
+                expressionLabel.text = String(currentResult)
                 pressedNumber = true
             
                 switch(sender.tag) {
                 case 0:
                     firstNumberPressed = true
+                    firstNumber.isEnabled = false
                 case 1:
                     secondNumberPressed = true
+                    secondNumber.isEnabled = false
                 case 2:
                     thirdNumberPressed = true
+                    thirdNumber.isEnabled = false
                 case 3:
                     fourthNumberPressed = true
+                    fourthNumber.isEnabled = false
                 default:
                     break
                 }
@@ -292,6 +308,7 @@ class GameViewController: UIViewController {
             nextOperation = "plus"
             plusPressed = true
             pressedNumber = false
+            plusButton.isEnabled = false
         } else {
             print("already pressed plus")
             print("pressed number is: ", pressedNumber)
@@ -309,6 +326,7 @@ class GameViewController: UIViewController {
             minusPressed = true
             nextOperation = "minus"
             pressedNumber = false
+            minusButton.isEnabled = false
         } else {
             print("already pressed minus")
             print("pressed number is: ", pressedNumber)
@@ -325,6 +343,7 @@ class GameViewController: UIViewController {
             multiplyPressed = true
             nextOperation = "multiply"
             pressedNumber = false
+            multiplyButton.isEnabled = false
         } else {
             print("already pressed multiply")
             print("pressed number is: ", pressedNumber)
@@ -341,6 +360,7 @@ class GameViewController: UIViewController {
             dividePressed = true
             nextOperation = "divide"
             pressedNumber = false
+            divideButton.isEnabled = false
         } else {
             print("already pressed divide")
             print("pressed number is: ", pressedNumber)
@@ -355,6 +375,15 @@ class GameViewController: UIViewController {
     }
     
     func resetVariables(clearPress: Bool) {
+        firstNumber.isEnabled = true
+        secondNumber.isEnabled = true
+        thirdNumber.isEnabled = true
+        fourthNumber.isEnabled = true
+        
+        plusButton.isEnabled = true
+        multiplyButton.isEnabled = true
+        minusButton.isEnabled = true
+        divideButton.isEnabled = true
         
         currentResult = -1
         concatenatedExpression = ""
