@@ -38,6 +38,9 @@
                                             <constraint firstAttribute="height" constant="96" id="noQ-7J-2bI"/>
                                         </constraints>
                                         <state key="normal" image="tutorial"/>
+                                        <connections>
+                                            <segue destination="x1W-NI-9KE" kind="show" id="4zs-0d-CqY"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Meo-6P-qrj">
                                         <rect key="frame" x="79" y="0.0" width="70" height="96"/>
@@ -73,6 +76,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
+        </scene>
+        <!--Tutorial-->
+        <scene sceneID="u6R-Yg-7SB">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Tutorial" id="x1W-NI-9KE" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e14-vF-xBC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-76" y="496"/>
         </scene>
         <!--Game-->
         <scene sceneID="6DN-93-sso">

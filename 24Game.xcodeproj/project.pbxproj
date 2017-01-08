@@ -12,6 +12,7 @@
 		4326F1D11E21660F00FE7B83 /* GameOver.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4326F1D01E21660F00FE7B83 /* GameOver.storyboard */; };
 		4326F1D31E21697600FE7B83 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4326F1D21E21697600FE7B83 /* GameOverViewController.swift */; };
 		4326F1D91E21749C00FE7B83 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4326F1D81E21749C00FE7B83 /* GameKit.framework */; };
+		4326F1DC1E21AFD200FE7B83 /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4326F1DB1E21AFD200FE7B83 /* Tutorial.storyboard */; };
 		43723CCB1E2095E1006E41F5 /* DINAlternateRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 43723CCA1E2095E1006E41F5 /* DINAlternateRegular.otf */; };
 		43723CCD1E2096D8006E41F5 /* DINAlternateBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 43723CCC1E2096D8006E41F5 /* DINAlternateBold.otf */; };
 		43FCAE171E2037EA00083069 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCAE161E2037EA00083069 /* AppDelegate.swift */; };
@@ -28,6 +29,7 @@
 		4326F1D01E21660F00FE7B83 /* GameOver.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GameOver.storyboard; sourceTree = "<group>"; };
 		4326F1D21E21697600FE7B83 /* GameOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 		4326F1D81E21749C00FE7B83 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		4326F1DB1E21AFD200FE7B83 /* Tutorial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tutorial.storyboard; sourceTree = "<group>"; };
 		43723CCA1E2095E1006E41F5 /* DINAlternateRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = DINAlternateRegular.otf; path = ../DINAlternateRegular.otf; sourceTree = "<group>"; };
 		43723CCC1E2096D8006E41F5 /* DINAlternateBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = DINAlternateBold.otf; path = ../DINAlternateBold.otf; sourceTree = "<group>"; };
 		43FCAE131E2037EA00083069 /* 24Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 24Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +109,7 @@
 				43FCAE1A1E2037EA00083069 /* Home.storyboard */,
 				43FCAE281E20565C00083069 /* Game.storyboard */,
 				4326F1D01E21660F00FE7B83 /* GameOver.storyboard */,
+				4326F1DB1E21AFD200FE7B83 /* Tutorial.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				43FCAE211E2037EA00083069 /* LaunchScreen.storyboard in Resources */,
 				43FCAE1E1E2037EA00083069 /* Assets.xcassets in Resources */,
 				4326F1D11E21660F00FE7B83 /* GameOver.storyboard in Resources */,
+				4326F1DC1E21AFD200FE7B83 /* Tutorial.storyboard in Resources */,
 				43FCAE1C1E2037EA00083069 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
