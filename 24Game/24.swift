@@ -4,8 +4,9 @@ import Darwin
 import Foundation
 
 func expression24(mode: String) -> [String] {
-    let result = 24
     
+    // This is just a constant 
+    let result = 24
     var expressionLength = -1
     var numbersLength = -1
     if mode == "easy" {
@@ -16,10 +17,12 @@ func expression24(mode: String) -> [String] {
         numbersLength = 5
     }
     var foundNumber = false
-    // Gets list of all possible expressions GOOD
+    
+    
+    // Gets list of all possible expressions so you have like [+, -, *], [+, -, /] etc 
     var expressions = permute(list: ["+", "-", "/", "*"], minStringLen: expressionLength)
     
-    // step 2 is to generate 4 random numbers from 1 - 9 GOOD
+    // step 2 is to generate 4 random numbers from 1 - 9 -> output is gonna be [1, 2, 3, 4] or [3, 6, 2, 5]
     var numbers = Set<Int>()
     while numbers.count < numbersLength {
         let randomNum = Int(arc4random_uniform(8) + 1)
@@ -35,7 +38,7 @@ func expression24(mode: String) -> [String] {
     // Iterate through each possible permutation of our chosen numbers
     for number_permutation in permute(list: number_permutations, minStringLen: numbersLength) {
         
-        // Put it into an array GOOD
+        // Put it into an array 
         var permutation_array = number_permutation.characters.map({ String($0) })
         
         // Initialize the finalResult to be the first element in the permutation_array
@@ -43,6 +46,7 @@ func expression24(mode: String) -> [String] {
             var finalResult = Int(permutation_array[0])
             var operand_index = 1
             
+            // We go through and see what our order of operations is, so if the first element in the array is +, we want to add the second number to the first number using the switch statement 
             for specific_operand in expression.characters.map({ String($0) }) {
                 switch(specific_operand) {
                 case "+":
@@ -58,8 +62,8 @@ func expression24(mode: String) -> [String] {
                 }
                 operand_index += 1
                 
-                // If the number is getting too big/too small then we can just skip the rest of the looping for the outer loop
-                if finalResult! > 48 || finalResult! < 1 {
+                // If the number is getting too big/too small then we can just skip the rest of the looping for the outer loop (this is used to keep runtime fast)
+                if finalResult! > 24 || finalResult! < 1 {
                     break
                 } else {
                     // Tweak this to modify difficulty
