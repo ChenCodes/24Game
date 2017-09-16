@@ -8,6 +8,7 @@
 
 import UIKit
 import GameKit
+import GoogleMobileAds
 
 
 class GameOverViewController: UIViewController, GKGameCenterControllerDelegate {
@@ -16,10 +17,20 @@ class GameOverViewController: UIViewController, GKGameCenterControllerDelegate {
     
     @IBOutlet weak var bestScore: UILabel!
     
+    @IBOutlet weak var bannerView: GADBannerView!
+    
+    
     var currentScoreInteger = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let request = GADRequest()
+        request.testDevices = [kGADSimulatorID]
+        bannerView.adUnitID = "ca-app-pub-5253392741312904/4397874541"
+        bannerView.rootViewController = self
+        bannerView.load(request)
+                
         authPlayer()
 
         // Do any additional setup after loading the view.

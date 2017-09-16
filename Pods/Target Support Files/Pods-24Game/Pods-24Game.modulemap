@@ -1,0 +1,6 @@
+framework module Pods_24Game {
+  umbrella header "Pods-24Game-umbrella.h"
+
+  export *
+  module * { export * }
+}
